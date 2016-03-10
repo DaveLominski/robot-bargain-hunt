@@ -6,6 +6,10 @@ from pygame.locals import *
 import sys
 import math
 import random
+import spriteGUI
+import config
+import environment
+
 
 #pygame dependent function
 def sort_highlight(pX, pY, oX, oY):
@@ -77,7 +81,7 @@ def start():
     flags = DOUBLEBUF
     DISPLAYSURF = pygame.display.set_mode((INV_WIDTH * TILESIZE + WIDTH*TILESIZE, HEIGHT*TILESIZE), flags)
     clock = pygame.time.Clock()
-    player = pygame.image.load('assets/player-idea.png')
+    player = pygame.image.load(str(config.playerCh))
     player_boat = pygame.image.load('assets/boat.png')
     pygame.time.set_timer(USEREVENT, TIME)
     DISPLAYSURF.set_alpha(None)
@@ -227,4 +231,3 @@ def start():
 
         pygame.display.update()
         clock.tick(60)
-start()
