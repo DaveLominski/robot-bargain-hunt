@@ -8,6 +8,7 @@ from pygame.locals import *
 import main
 from assets import *
 import config
+import environment
 
 
 class SpriteGui():
@@ -19,6 +20,7 @@ class SpriteGui():
         player1 = pygame.image.load('player1.png')
         player2 = pygame.image.load('player2.png')
         player3 = pygame.image.load('player3.png')
+        config.x = True
         pygame.font.init()   # font initialisation
         myfont = pygame.font.Font('font1.ttf', 65)  # choosing the font
         title = myfont.render("CHOOSE THE MODEL ", 1, (0,0,0))
@@ -35,22 +37,14 @@ class SpriteGui():
         self.surface.blit(player3, (1120, 400))
 
 
-    def process_input(self):
-        for event in pygame.event.get(): # Menu control
-            if event.type == pygame.KEYDOWN:
-                if (event.key == K_1):
-                    config.playerCh = 'player1.1.png'
-                    print("Yo")
-                elif (event.key == K_2):
-                    config.playerCh = 'player2.1.png'
-                    print("Yo2")
-                elif (event.key == K_3):
-                    config.playerCh = 'player3.1.png'
-                    print("yo3")
-                elif (event.key == K_q):
-                    pygame.display.quit()
-                    pygame.quit()
-                    sys.exit()
+    #2def process_input(self):
+        #for event in pygame.event.get(): # Menu control
+            #if event.type == pygame.KEYDOWN:
+
+                #elif (event.key == K_q):
+                 #   pygame.display.quit()
+                  #  pygame.quit()
+                 #   sys.exit()
 
     def update(self):
         pass

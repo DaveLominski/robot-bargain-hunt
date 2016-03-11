@@ -39,6 +39,15 @@ class Environment():
                     main.start()
                 elif (event.key == K_c):
                     spriteGUI.SpriteGui()
+                if (event.key == K_1) and config.x == True:
+                    config.playerCh = 'player1.1.png'
+                    main.start()
+                elif (event.key == K_2) and config.x == True:
+                    config.playerCh = 'player2.1.png'
+                    main.start()
+                elif (event.key == K_3) and config.x == True:
+                    config.playerCh = 'player3.1.png'
+                    main.start()
 
                 elif (event.key == K_q): # Quit game
                     pygame.display.quit()
