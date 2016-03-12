@@ -14,6 +14,10 @@ class Environment():
     def __init__(self):
         self.surface = graphics.SCREEN
         self.gui_group = pygame.sprite.Group()
+        pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
+        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.load("bgmusic.mp3")
+        pygame.mixer.music.play()
         bckImg = pygame.image.load('map1.png') # loading an image of the map
         pygame.font.init()   # font initialisation
         myfont = pygame.font.Font('font1.ttf', 65)  # choosing the font
@@ -29,6 +33,8 @@ class Environment():
         self.surface.blit(startTheGame, ((500),700))
         self.surface.blit(closeTheMenu, ((635),885))
         self.surface.blit(chooseTheSprite, ((450,800)))
+
+
 
 
     def process_input(self):
@@ -53,6 +59,7 @@ class Environment():
                     pygame.display.quit()
                     pygame.quit()
                     sys.exit()
+
                     
     def update(self):
         pass
