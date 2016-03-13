@@ -10,7 +10,7 @@ import config
 
 
 class Environment():
-
+    """Main Menu class, all of the key events and screen outputs are here"""
     def __init__(self):
         self.surface = graphics.SCREEN
         self.gui_group = pygame.sprite.Group()
@@ -20,17 +20,17 @@ class Environment():
         pygame.mixer.music.play()
         bckImg = pygame.image.load('map1.png') # loading an image of the map
         pygame.font.init()   # font initialisation
-        myfont = pygame.font.Font('font1.ttf', 65)  # choosing the font
+        myfont = pygame.font.Font('font1.ttf', 65)  # different font sizes to choose from
         myfont1 = pygame.font.Font('font1.ttf', 40)
         myfont2 = pygame.font.Font('font1.ttf', 30)
         myfont3 = pygame.font.Font('font1.ttf', 32)
-        title = myfont.render("IT BELONGS IN THE MUSEUM !", 1, (0,0,0))
+        title = myfont.render("IT BELONGS IN THE MUSEUM !", 1, (0,0,0)) #Rendering all of the titles in the main menu
         startTheGame = myfont1.render("PRESS 'ENTER' TO START", 1, (0,200,0))
         closeTheMenu = myfont2.render("PRESS 'Q' TO QUIT", 1, (180,0,0))
         chooseTheSprite = myfont3.render("PRESS 'C' TO CHANGE THE AI MODEL", 1, (0,100,0))
         self.surface.blit(bckImg, (0,0))  #blitting the background
         self.surface.blit(title, (375,80)) #blitting the title
-        self.surface.blit(startTheGame, ((500),700))
+        self.surface.blit(startTheGame, ((500),700)) #blitting the titles in the main menu
         self.surface.blit(closeTheMenu, ((635),885))
         self.surface.blit(chooseTheSprite, ((450,800)))
 
@@ -40,13 +40,13 @@ class Environment():
     def process_input(self):
         for event in pygame.event.get(): # Menu control
             if event.type == pygame.KEYDOWN: 
-                if (event.key == K_RETURN):
+                if (event.key == K_RETURN): #'Enter' starts the game
                     print("START GAME")
                     main.start()
-                elif (event.key == K_c):
+                elif (event.key == K_c): #'c' transfers to menu to choose a sprite
                     spriteGUI.SpriteGui()
                 if (event.key == K_1) and config.x == True:
-                    config.playerCh = 'player1.1.png'
+                    config.playerCh = 'player1.1.png' # 1, 2 or 3 chooses the sprite
                     main.start()
                 elif (event.key == K_2) and config.x == True:
                     config.playerCh = 'player2.1.png'
