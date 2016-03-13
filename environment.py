@@ -28,12 +28,16 @@ class Environment():
         startTheGame = myfont1.render("PRESS 'ENTER' TO START", 1, (0,200,0))
         closeTheMenu = myfont2.render("PRESS 'Q' TO QUIT", 1, (180,0,0))
         chooseTheSprite = myfont3.render("PRESS 'C' TO CHANGE THE AI MODEL", 1, (0,100,0))
+        ascending = myfont2.render("'A' for Ascending order ", 1, (0,0,0))
+        descending = myfont2.render("'D' for Descending order", 1, (0,0,0))
+
         self.surface.blit(bckImg, (0,0))  #blitting the background
         self.surface.blit(title, (375,80)) #blitting the title
         self.surface.blit(startTheGame, ((500),700)) #blitting the titles in the main menu
         self.surface.blit(closeTheMenu, ((635),885))
         self.surface.blit(chooseTheSprite, ((450,800)))
-
+        self.surface.blit(ascending, (940,400))
+        self.surface.blit(descending, (930, 450))
 
 
 
@@ -45,7 +49,11 @@ class Environment():
                     main.start()
                 elif (event.key == K_c): #'c' transfers to menu to choose a sprite
                     spriteGUI.SpriteGui()
-                if (event.key == K_1) and config.x == True:
+                elif (event.key == K_a):
+                    config.ASCENDING = True
+                elif (event.key == K_d):
+                    config.ASCENDING = False
+                elif (event.key == K_1) and config.x == True:
                     config.playerCh = 'player1.1.png' # 1, 2 or 3 chooses the sprite
                     main.start()
                 elif (event.key == K_2) and config.x == True:

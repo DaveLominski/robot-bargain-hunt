@@ -28,7 +28,7 @@ def start():
     steps = 0
     count = 0
     value = 0
-    ASCENDING = False
+    #ASCENDING = True
     WIDTH = 20
     HEIGHT = 20
     INV_WIDTH = 5
@@ -69,7 +69,7 @@ def start():
         objs.append(game_items[items[i]])
 
     print("Sorting into order")
-    if ASCENDING == True:
+    if config.ASCENDING == True:
         sorted_list = sort_objects(objs)[::-1]
     else:
         sorted_list = sort_objects(objs)
@@ -90,8 +90,8 @@ def start():
     font_renderer = pygame.font.Font(default_font, 19)
     #Estabish labels - i.e the text on screen
     inv_label = font_renderer.render("Inventory", 1, (255, 255, 255))
-    print(ASCENDING, "!_-----------------")
-    if (ASCENDING):
+    print(config.ASCENDING, "!_-----------------")
+    if (config.ASCENDING):
         asc_label = font_renderer.render("Ascending", 1, (255, 255, 255))
     else:
         asc_label = font_renderer.render("Descending", 1, (255, 255, 255))
